@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Width、Height</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(function () {
+
+            $("div").css("background-color", "green");
+
+            //设置高度
+            $("button:eq(0)").click(function () {
+                //用css来设置高度
+                //$("div").css("height", "200px");
+
+                //用height来设置高度
+                $("div").height(200);
+            });
+
+            //获取高度
+            $("button:eq(1)").click(function () {
+                $("div").html("div的高度是：" + $("div").height());
+            })
+
+            //设置宽度
+            $("button:eq(2)").click(function () {
+                $("div").width(500);
+            });
+
+            //获取宽度
+            $("button:eq(3)").click(function () {
+                $("div").html("div的宽度是：" + $("div").width());
+            })
+
+            //对比.css()和.width()方法设置的宽度
+            $("button:eq(4)").click(function () {
+                console.log(".css()方法获取的结果是：" + $("div").css("width"));
+                console.log(".width()方法获取的结果是：" + $("div").width());
+            })
+        })
+    </script>
+</head>
+<body>
+<button>设置高度</button>
+<button>获取高度</button>
+<button>设置宽度</button>
+<button>获取宽度</button>
+<button>对比.css()和.width()方法设置的宽度</button>
+<div></div>
+</body>
+</html>

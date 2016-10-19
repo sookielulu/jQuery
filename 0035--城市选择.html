@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>城市选择</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        select {
+            width: 200px;
+            height: 200px;
+            background-color: #116278;
+            font-size: 20px;
+        }
+        .btn-box {
+            width: 30px;
+            display: inline-block;
+            vertical-align: top;  /*顶部对齐*/
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(function () {
+            $("#btn-sel-all").on("click", function () {
+               //把所有的城市从左边移动到右边
+                $("#src-city option").appendTo("#tar-city");
+            });
+            $("#btn-sel-none").on("click", function () {
+                //把所有城市从右边移动到左边
+                $("#tar-city option").appendTo("#src-city");
+            });
+
+            $("#btn-sel").on("click", function () {
+                 $("#src-city option:selected").appendTo("#tar-city");
+            });
+            $("#btn-back").on("click", function () {
+                 $("#tar-city option:selected").appendTo("#src-city");
+            });
+        });
+    </script>
+</head>
+<body>
+<select name="src-city" id="src-city" multiple>  <!--multiple 属性规定可同时选择多个选项-->
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">广州</option>
+    <option value="4">深圳</option>
+    <option value="5">南京</option>
+</select>
+<div class="btn-box">
+    <button id="btn-sel-all">>></button>
+    <button id="btn-sel-none"><<</button>
+    <button id="btn-sel">></button>
+    <button id="btn-back"><</button>
+</div>
+<select name="tar-city" id="tar-city" multiple>
+
+</select>
+</body>
+</html>

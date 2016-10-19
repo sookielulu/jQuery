@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标跟随</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(function () {
+            $(document).on("mousemove", function (e) {
+                $("img").css({
+                    "position": "absolute",
+                    "top": e.pageY,
+                    "left": e.pageX
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<img src="image/click-follow-mouse-img.jpg" alt="" style="width: 80px">
+</body>
+</html>

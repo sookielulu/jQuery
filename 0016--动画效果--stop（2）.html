@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stop</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #116278;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#start").click(function () {
+                $("#box").animate({"height": "300px"}, 3000);
+                $("#box").animate({"width": 300}, 3000);
+                $("#box").animate({"height": 100}, 3000);
+                $("#box").animate({"width": 100}, 3000);
+            });
+            $("#stop").click(function () {
+                $("#box").stop(false);  //false表示停止当前动画
+                //$("#box").stop(true);     //true表示清空队列，即后续所有动画都不执行
+
+            })
+        });
+    </script>
+</head>
+<body>
+<p>
+    <button id="start">Start Animation</button>
+    <button id="stop">Stop Animation</button>
+</p>
+<div id="box"></div>
+</body>
+</html>

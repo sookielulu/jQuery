@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM对象与jQuery对象相互转换</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            var btn = document.getElementById("btn");
+
+            //用$将JS对象包起来，即为jQuery对象
+            $(btn).click(function () {
+                $("div").hide();
+            });
+
+
+
+            //将jQuery对象转换为DOM对象
+
+            /*  方法一
+            $("#btn")[0].onclick = function () {
+                alert("jQ  -->  JS");
+            };
+            */
+
+            //方法二
+            $("button").get(0).onclick = function () {
+                alert("jQ  -->>>>  JS");
+            };
+        });
+    </script>
+</head>
+<body>
+<button id="btn">我是按钮</button>
+<div>
+dsasf
+</div>
+</body>
+</html>

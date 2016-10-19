@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show/hide</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("div").css({
+                "display": "none",
+                "height": "200px",
+                "width": "300px",
+                "background": "pink"
+            });
+            $("button").eq(0).click(function () {
+                //让div展示出来
+                //$("div").show(3000);      //用3秒显示出来
+                //$("div").show("slow");    //出现速度慢
+                //$("div").show("normal");  //出现速度中等
+                //$("div").show("fast");    //出现速度快
+                $("div").show(2000, function () {
+                    alert("ok");
+                })
+            });
+            $("button").eq(1).click(function () {
+                $("div").hide(3000);
+            })
+        });
+    </script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<div></div>
+</body>
+</html>

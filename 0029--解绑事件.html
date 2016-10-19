@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解绑事件</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //绑定事件
+            $("#button1").bind({    //两个参数的bind
+                "mouseenter": function () {
+                    alert("up");
+                },
+                "mouseleave": function () {
+                    alert("down");
+                }
+            });
+
+            // on  建议使用这种
+            $("ul").on("click", "li", function () {
+                alert($(this).html());
+            });
+
+
+            //解绑事件
+
+            //1、用bind绑定的事件，用unbind解绑
+            //2、用delegate绑定的事件，用undelegate解绑
+            //3、用on绑定的事件，用off解绑
+            $("ul").off("click");
+        })
+    </script>
+</head>
+<body>
+<button id="button1">绑定两个事件</button>
+<button id="button2">3参数的bind</button>
+<button id="button3">one事件</button>
+<ul>
+    <li>我是li1</li>
+    <li>我是li2</li>
+    <li>我是li3</li>
+    <li>我是li4</li>
+    <li>我是li5</li>
+    <li>我是li6</li>
+    <li>我是li7</li>
+    <li>我是li8</li>
+    <li>我是li9</li>
+</ul>
+</body>
+</html>

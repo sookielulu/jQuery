@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab栏切换</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrapper {
+            width: 1000px;
+            height: 475px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .tab {
+            width: 320px;
+            height: 36px;
+            border: 1px solid #cccccc;
+            border-bottom: 0;
+        }
+        .tab li {
+            width: 80px;
+            height: 34px;
+            float: left;
+            font: 400 16px/34px "microsoft yahei";
+            text-align: center;
+            border-top: 2px solid #ffffff; /*这句很重要*/
+        }
+        .tab .active {
+            border-top: 2px solid red;
+        }
+        .tab li span {
+            font-size: 12px;
+            color: #cccccc;
+            float: right;
+        }
+        .products {
+            width: 1002px;
+            height: 476px;
+            border: 1px solid #ddd;
+        }
+        .main {
+            display: none;
+        }
+        .selected {
+            display: block;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".tab li").mouseenter(function () {
+                var $this = $(this);  //this是DOM对象，$(this)表示转换为jQuery对象
+
+                // 给自己添加样式，给兄弟栏移除样式
+                $this.addClass("active").siblings("li").removeClass("active");
+
+                // 移动tab栏时，下面改变相应内容
+                $(".main").eq($this.index())
+                        .addClass("selected")
+                        .siblings(".main")
+                        .removeClass("selected");
+                //或者 写成
+                var index = $(this).index();
+                $(".main:eq("+index+")")   //这里的格式很重要
+                        .addClass("selected")
+                        .siblings(".main")
+                        .removeClass("selected");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <ul class="tab">
+        <li class="tab-item active">国际大牌<span>|</span></li>
+        <li class="tab-item">国妆名牌<span>|</span></li>
+        <li class="tab-item">清洁用品<span>|</span></li>
+        <li class="tab-item">男士精品</li>
+    </ul>
+    <div class="products">
+        <div class="main selected">
+            <a href="###"><img src="image/guojidapai.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="image/guozhuangmingpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="image/qingjieyongpin.jpg" alt=""/></a>
+        </div>
+        <div class="main">
+            <a href="###"><img src="image/nanshijingpin.jpg" alt=""/></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

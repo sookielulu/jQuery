@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动效果</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("div").css({
+                "width": "200px",
+                "height": "300px",
+                "background-color": "pink",
+                "display": "none"
+            });
+
+            //滑动效果   下拉/收起/自动检测
+            /*
+            (1)   speed[,fn]    Number/String,Function
+            * speed:三种预定速度之一的字符串("slow","normal", or "fast")或表示动画时长的毫秒数值(如：1000)
+
+              fn:在动画完成时执行的函数，每个元素执行一次。
+
+            (2)   [speed],[easing],[fn]Number/String,String,Function
+            speed:三种预定速度之一的字符串("slow","normal", or "fast")
+                 或表示动画时长的毫秒数值(如：1000)
+
+             easing:(Optional) 用来指定切换效果，默认是"swing"，可用参数"linear"
+                    swing：非匀速   linear：匀速
+
+             fn在动画完成时执行的函数，每个元素执行一次。
+
+             * */
+            $("button").eq(0).click(function () {
+                $("div").slideDown(3000, "linear", function () {
+                    
+                });
+            });
+            $("button").eq(1).click(function () {
+                $("div").slideUp();
+            });
+            $("button:last").click(function () {
+                $("div").slideToggle(3000);
+            })
+        })
+    </script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>自动切换</button>
+<div></div>
+</body>
+</html>

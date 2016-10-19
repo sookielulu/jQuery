@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同时绑定两个事件</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            /*$("#button1").click(function () {
+                alert("我是click事件");
+            }).mouseenter(function () {
+                alert("我是mouseenter事件");
+            });*/
+
+
+            //bind  绑定两个事件
+            /*
+            $("#button1").bind("click mouseenter", function () {
+                alert("hello");
+            });
+            */
+
+            $("#button1").bind({    //两个参数的bind
+                "mouseenter": function () {
+                    alert("up");
+                },
+                "mouseleave": function () {
+                    alert("down");
+                }
+            });
+
+
+
+            //3参数的bind
+
+            /*
+            $("#button2").bind("click","我是传进来的数据",function (e) {
+                alert(e.data);
+            });
+            */
+            $("#button2").bind("click",{aa: true},function (e) {
+                alert(e.data.aa);
+            }); //第2个参数是个对象。对象有属性aa
+                //由于第2个参数是个对象，则data也是对象，则要获取属性值，再.aa即可
+
+
+            // one  只触发一次
+            $("#button3").one("click", function () {
+                alert("我是one事件");
+            });
+
+
+            //事件委托
+            //这里要给每个li绑定一个事件，在点击li时，弹出html()内容
+            //这里就向li的父级ul委托
+            /*$("ul").delegate("li", "click", function () {
+                alert($(this).html());
+            });*/
+
+            // on  建议使用这种
+            $("ul").on("click", "li", function () {
+                alert($(this).html());
+            });
+        })
+    </script>
+</head>
+<body>
+<button id="button1">绑定两个事件</button>
+<button id="button2">3参数的bind</button>
+<button id="button3">one事件</button>
+<ul>
+    <li>我是li1</li>
+    <li>我是li2</li>
+    <li>我是li3</li>
+    <li>我是li4</li>
+    <li>我是li5</li>
+    <li>我是li6</li>
+    <li>我是li7</li>
+    <li>我是li8</li>
+    <li>我是li9</li>
+</ul>
+</body>
+</html>

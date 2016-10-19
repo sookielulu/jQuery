@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // 空格：后代选择器，选择后代的**元素
+                 $(".wrap li").css("background", "red");
+
+
+            //  > ：子代选择器，选择子代中的**元素
+                 $(".wrap > ul > li").css("font-size", "20px");
+                //在这里，不仅31行ul下面的直接子元素li变化了， li中的p中的ul中的li也变化了
+                //是因为继承了父类的样式
+
+
+            //  + ：紧邻选择器，选择紧挨着的下一个**元素
+                 $(".wrap + div").css("background", "orange");
+
+
+            //  ~ ：兄弟选择器，选择所有兄弟元素中的**元素（自己并不改变）
+                 $(".try ~ li").css("color", "#ffffff");
+
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>兄弟01
+            <p>
+            <ul>
+                <li>孩子</li>
+                <li>孩子</li>
+                <li>孩子</li>
+            </ul>
+            </p>
+        </li>
+        <li>兄弟02</li>
+        <li class="try">兄弟03</li>
+        <li>兄弟04</li>
+        <li>兄弟05</li>
+        <li>兄弟06</li>
+    </ul>
+</div>
+<div>
+    第一个div后面的div元素
+</div>
+<div>
+    第二个div后面的div元素
+</div>
+</body>
+</html>

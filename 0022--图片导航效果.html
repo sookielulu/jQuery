@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片导航效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            vertical-align: top; /*垂直对齐*/
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            width: 762px;
+            height: 280px;
+            border: 1px solid #dddddd;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .wrap li {
+            float: left;
+            margin: 10px 0 0 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .wrap li div,
+        .wrap li p {
+            width: 178px;
+            height: 25px;
+            /*opacity: 0.7;
+            filter: alpha();*/
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            font: 400 14px/25px "宋体";
+            text-align: center;
+            color: #ffffff;
+        }
+        .wrap li div {
+            background-color: #0e0e0e;
+        }
+        .wrap li p {
+            margin-left: 10px;
+            background: url("image/tupiandaohang-bg.png") no-repeat 0 0;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(function () {
+            $(".wrap li")
+                    .append("<div></div><p>百度一下，你就知道</p>")
+                    .children("div")
+                    .fadeTo(300, 0.6)  //给div设置背景透明
+                    .next("p")   ///找到P元素，若p与div并列，则为  next("p")
+                    .each(function (index, ele) {  //each表示遍历
+                        //console.log(index);  //索引号
+                        //console.log(ele);  //对应元素
+                        $(this).css({
+                            "background-position": "0 "+(-25*index)+"px"
+                        })
+                    });
+
+
+            $(".wrap li")
+                    .mouseenter(function () {
+                        $(this).children().stop().animate({
+                            "bottom": 0
+                        },300);
+                     })
+            /*$(".wrap li")*/
+                    .mouseleave(function () {
+                        $(this).children().stop().animate({
+                            "bottom": "-25px"
+                        },300);
+                    })
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <!--<div>
+                <p>百度一下，你就知道</p>
+            </div>-->
+            <a href="#"><img src="image/tupiandaohang%20(1).JPG" alt=""></a>
+        </li>
+        <li><a href="#"><img src="image/tupiandaohang%20(2).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(3).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(4).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(5).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(6).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(7).JPG" alt=""></a></li>
+        <li><a href="#"><img src="image/tupiandaohang%20(8).JPG" alt=""></a></li>
+    </ul>
+</div>
+</body>
+</html>

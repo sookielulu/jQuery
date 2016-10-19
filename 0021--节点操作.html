@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作</title>
+    <style>
+        div {
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+
+
+        //下面介绍的这些方法尽量少用，尽量采用如71行的html的方法，因为更加高效
+
+
+        $(document).ready(function () {
+
+            //追加节点  append 给***在最后添加
+            $("button:eq(0)").click(function () {
+                $("div").append("<p>我是动态创建的结点111</p>")
+            });
+
+            //追加节点  appenTo 添加给***
+            $("button:eq(1)").click(function () {
+                $("<p>我是动态创建的结点222</p>").appendTo("div");
+            });
+
+            //在内部的前面追加节点  prepend 在标签内部 在前面追加
+            $("button:eq(2)").click(function () {
+                $("div").prepend("<p>我是动态创建的节点333</p>")
+            });
+
+            //在内部的前面追加节点  prependTo 在标签内部 在前面追加
+            $("button:eq(3)").click(function () {
+                $("<p>我是动态创建的节点444</p>").prependTo("div");
+            });
+
+            //在前面追加节点   before  在标签外部 在前面追加
+            $("button:eq(4)").click(function () {
+                $("div").before("<p>我是动态创建的节点555</p>");
+            });
+
+            //在前面追加节点  insertBefore  在标签外部 在前面追加
+            $("button:eq(5)").click(function () {
+                $("<p>我是动态创建的节点666</p>").insertBefore("div");
+            })
+
+            //在后面追加节点   after  在标签外部 在后面追加
+            $("button:eq(6)").click(function () {
+                $("div").after("<p>我是动态创建的节点777</p>");
+            });
+
+
+            //在后面追加节点   insertAfter  在标签外部 在后面追加
+            $("button:eq(7)").click(function () {
+                $("<p>我是动态创建的节点888</p>").insertAfter("div");
+            });
+
+
+            //删除节点  remove
+            $("button:eq(8)").click(function () {
+                $("h1").remove();
+                $(this).remove();  //“自杀”  删除自己
+            });
+
+            //清空所有子元素
+            $("button:eq(9)").click(function () {
+//                $("div").empty();
+                $("div").html("");  //更推荐使用这种方式，更加高效
+            });
+
+            //复制节点
+            $("button:eq(10)").click(function () {
+                $("div").append($("h1 ").clone(true));
+                //若传了true，则不仅复制元素，也会复制元素绑定的事件
+                //默认为false，只复制元素，不复制事件
+            });
+
+            //包裹节点
+            $("button:eq(11)").click(function () {
+                $(this).wrap("div");
+            });
+
+            //替换节点
+            $("button:eq(12)").click(function () {
+                $(this).replaceWith("<div>div节点</div>");
+            });
+        });
+    </script>
+</head>
+<body>
+<button>append 追加节点</button>
+<button>appendTo 追加节点</button>
+<button>prepend 在内部的前面追加节点</button>
+<button>prependTo 在内部的前面追加节点</button>
+<button>before 在前面追加节点</button>
+<button>insertBefore 在前面追加节点</button>
+<br>
+<button>after 在后面追加节点</button>
+<button>insertAfter 在后面追加节点</button>
+<button>remove 删除节点</button>
+<button>empty 清空所有子元素</button>
+<button>复制节点</button>
+<button>包裹节点</button>
+<button>替换节点</button>
+
+
+<h1>我是标题111</h1>
+<div>
+    <h2>我是标题222</h2>
+</div>
+</body>
+</html>

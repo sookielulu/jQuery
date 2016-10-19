@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式操作</title>
+    <style>
+        .divItem2 {
+            font-size: 24px;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // css方法
+            /*
+            $("li").css("font-size", "18px");
+            $("li").css({
+                "color": "black",
+                "opacity": 0.6
+            })
+            */
+
+            //获取样式
+            /*
+            var fontSize = $("li").css("font-size");
+            console.log(fontSize);
+            */
+
+
+
+
+            //给所有的li元素添加样式
+
+            //  1、给选定元素添加类样式
+            $("li").addClass("divItem1");
+            //  2、给选定元素移除样式
+            $("li:eq(2)").removeClass("divItem1");
+               //若这里直接写removeClass()，则li:eq(2)中所有样式都会清掉
+            //  3、切换样式
+            $("#btn").click(function () {
+                $("li").eq(3).toggleClass("divItem2");
+
+                //  4、判断有没有样式
+                var hasDivItem2 = $("li").eq(3).hasClass("divItem2");
+                console.log(hasDivItem2);
+            })
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="切换样式">
+<ul>
+    <li>元素01</li>
+    <li>元素02</li>
+    <li>元素03</li>
+    <li>元素04</li>
+    <li>元素05</li>
+    <li>元素06</li>
+    <li>元素07</li>
+    <li>元素08</li>
+</ul>
+</body>
+</html>

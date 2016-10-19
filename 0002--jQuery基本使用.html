@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery基本使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100%;
+            height: 200px;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+
+        //两种引入方式
+        //  1、入口函数的方式
+        $(document).ready(function () {
+
+        });
+
+
+        //  2、方式1的简写
+        $(function () {
+
+        });
+        
+        
+        //练习
+        $(document).ready(function () {
+            $("#demo").click(function () {
+                //事件处理语句
+                $("div").hide(1000);
+            });
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="demo">
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

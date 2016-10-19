@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定导航栏</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(function () {
+            var topHeight = $(".top").height();
+           $(window).scroll(function () {
+               var  docScrollTop = $(document).scrollTop();  //文档对象被卷去的高度
+               if (docScrollTop >= topHeight) {
+                   $(".nav").css({
+                       "position": "fixed",
+                        "top": 0
+                   });
+
+                   //将.nav设置为固定定位时，.nav脱离了文档流，则原所占位置会成为空白
+                   //会导致.main突然向上。为解决这个问题，给.main设置一个与.nav高度相等的上边距
+                   $(".main").css({
+                       "margin-top": $(".nav").height()
+                   });
+               }else {
+
+                   //将固定导航栏变为默认状态
+                    $(".nav").css({
+                        "position": "static"
+                    });
+                   $(".main").css({
+                       "margin-top": 0
+                   });
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+<div class="top">
+    <img src="image/gudingdaohanglan-top.png" alt="">
+</div>
+<div class="nav">
+    <img src="image/gudingdaohanglan-nav.png" alt="">
+</div>
+<div class="main">
+    <img src="image/gudingdaohanglan-main.png" alt="">
+</div>
+</body>
+</html>

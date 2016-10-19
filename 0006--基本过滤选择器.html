@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本过滤选择器</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // :odd 奇数    :even 偶数
+            // 实现隔行变色
+            $("li:even").css("background-color", "#cccccc");
+            $("li:odd").css("background-color", "#333333");
+
+            // :eq(index)  选择索引为index的元素
+            $("li:eq(4)").css({
+                "font-size": "20px",
+                "color": "#ffffff"
+            });
+
+            // :lt(index)   :gt(index)   小于/大于
+            $("li:lt(2)").css("color", "#ffffff");
+            $("li:gt(8)").css("color", "orange"); //8之后所有的都会变化
+            $(".ul1 li:gt(8)").css("color", "red");
+
+            //:first  :last  第一个/最后一个元素
+            $("li:first").css("font-size", "30px")
+        })
+    </script>
+</head>
+<body>
+<ul class="ul1">
+    <li>这里是内容01</li>
+    <li>这里是内容02</li>
+    <li>这里是内容03</li>
+    <li>这里是内容04</li>
+    <li>这里是内容05</li>
+    <li>这里是内容06</li>
+    <li>这里是内容07</li>
+    <li>这里是内容08</li>
+    <li>这里是内容09</li>
+    <li>这里是内容10</li>
+</ul>
+<ul>
+    <li>这里是内容01</li>
+    <li>这里是内容02</li>
+    <li>这里是内容03</li>
+    <li>这里是内容04</li>
+    <li>这里是内容05</li>
+    <li>这里是内容06</li>
+    <li>这里是内容07</li>
+    <li>这里是内容08</li>
+    <li>这里是内容09</li>
+    <li>这里是内容10</li>
+</ul>
+</body>
+</html>

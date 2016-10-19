@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性过滤选择器</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //属性选择器
+
+            // [attr = value]
+            $("a[href]").css("color", "orange");
+            $("a[href = 'http://web.itcast.cn']").css("color", "green");
+
+            // [attr != value]
+            $("a[href != 'http://web.itcast.cn']").css("font-size", "30px");
+
+            // [attr ^= value]  以value开头的
+            $("a[href ^= 'http']").css("background-color", "#cccccc");
+
+            // [attr $= value]  以value结尾的
+            $("a[href $= 'cn']").css("opacity", "0.4");
+
+            // [attr *= value]  字符串中包含value的
+            $("a[href *= 'it']").css("font-size", "50px");
+
+            // 包含多属性
+            $("a[href][title *= '客']").css("background-color", "red");
+        })
+    </script>
+</head>
+<body>
+<div class="divItem">
+    <a href="http://www.baidu.com">百度</a>
+    <a href="http://web.itcast.cn" title="播客">传智播客</a>
+    <a href="http://sina.com.cn">新浪</a>
+    <a>我没有href</a>
+</div>
+</body>
+</html>

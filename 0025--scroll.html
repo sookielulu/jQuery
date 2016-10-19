@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            overflow: scroll;
+            background-color: pink;
+        }
+        p {
+            width: 600px;
+            height: 1000px;
+        }
+    </style>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //获取滚动条位置
+            $("#btn1").click(function () {
+                console.log($("div").scrollTop());
+                console.log($("div").scrollLeft());
+            });
+
+            //设置滚动条位置
+            var i=0;
+            $("#btn2").click(function () {
+                i += 50;
+                $("div").scrollTop(i);
+                $("div").scrollLeft(i);
+            })
+        });
+    </script>
+</head>
+<body>
+<button id="btn1">获取滚动条位置</button>
+<button id="btn2">设置滚动条位置</button>
+<div>
+    <p>这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容</p>
+</div>
+</body>
+</html>

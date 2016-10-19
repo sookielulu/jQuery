@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>触发事件</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+           /*$("form").on("click", "#btnSub", function () {
+               var txtName = $("#txtName").val();
+               if (txtName == "1") {
+                    alert("提交成功");
+               } else {
+                   $("#txtName").val("").triggerHandler("focus");
+               }
+           });*/
+            //on只是利用事件捕获和冒泡的特性，给父元素绑定事件，来达到使子元素实现click的目的
+            //但子元素并没有真正绑定一个事件
+
+            //因此，要使用.click()才能真正绑定事件，这时才能使用触发事件
+
+
+           
+           $("#btnSub").click(function () {
+               var txtName = $("#txtName").val();
+               if (txtName == "1") {
+                   alert("提交成功");
+               } else {
+                   $("#txtName").val("").triggerHandler("focus");
+               }
+           });
+            //用trigger触发事件，且触发浏览器默认行为。triggerHandler不触发浏览器
+            $("#btnTriggerHandler").bind("click", function () {
+                $("#btnSub").trigger("click");
+            });
+        });
+    </script>
+</head>
+<body>
+<form action="">
+    <label for="txtName">用户名</label>
+    <input type="text" id="txtName">
+    <input type="submit" value="提交" id="btnSub">
+    <input type="button" value="触发提交" id="btnTriggerHandler">
+</form>
+</body>
+</html>

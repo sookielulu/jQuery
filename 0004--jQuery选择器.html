@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ选择器</title>
+    <style>
+        li {
+            color: blue;
+        }
+        .b01 {
+            color: pink;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //id选择器 #
+            //$("#b03").css("background-color", "red");
+            var bg1 = $("#b03").css("color"); //获取属性
+            console.log(bg1);
+
+            var size = $("#b03").css("font-size", "20px"); //设置属性
+            console.log(size);
+
+
+            //class选择器  .
+            var bg2 = $(".b01").css("color");
+            console.log(bg2);
+
+
+            //标签选择器
+            var bg3 = $("li").css("color");
+            console.log(bg3);
+
+
+            //通配选择器
+            var bg4 = $("*").css("background", "#cccccc");
+            console.log(bg4);
+
+            //并集选择器  ,
+            var bg5 = $("#b02, .b04").css("font-size", "40px");
+            console.log(bg5);
+
+            //设置多个样式
+            $("#b05").css({
+                "background-color": "black",
+                "color": "white",
+                "font-size": "20px"
+            });
+            
+            //设置指定元素的样式
+            $("li").css("font-size", function (index, value) {
+                //index: 指定要改变的元素的索引号
+                //value：表示指定元素要设置的样式
+
+                /*console.log(index);
+                console.log(value);*/
+
+
+                //通过一句语句将字体设置成不同字号大小
+//                return (index + 1) * 10 + "px";
+
+                //只设置某一个元素
+                if (index == 2) {
+                    return (index + 1) * 10 + "px";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li class="b01">兄弟1</li>
+    <li id="b02">兄弟2</li>
+    <li id="b03">兄弟3</li>
+    <li>兄弟4</li>
+    <li class="b01">兄弟5</li>
+    <li class="b01">兄弟6</li>
+    <li class="b04">兄弟7</li>
+    <li id="b05">兄弟8</li>
+    <li>兄弟9</li>
+</ul>
+</body>
+</html>

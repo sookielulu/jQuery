@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ入口函数与JS入口函数的对比</title>
+    <script type="text/javascript" src="jquery-2.2.4.js"></script>
+    <script type="text/javascript">
+
+        //用JS来获取图片宽度
+        /*window.onload = function () {
+            alert(document.getElementsByTagName("img")[2].clientWidth);   //730
+        };*/
+
+
+
+        //用JQ来获取图片宽度
+        //JQ是在 DOM节点(标签) 加载完成后就会运行
+        $(function () {
+            //alert(document.getElementsByTagName("img")[2].clientWidth); //730
+            alert($("#img3").width());  //730
+        });
+    </script>
+</head>
+<body>
+<img src="image/11.jpg" alt="">
+<img src="image/22.jpg" alt="">
+<img src="image/33.jpg" alt="" id="img3">
+</body>
+</html>

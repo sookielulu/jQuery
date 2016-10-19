@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筛选选择器</title>
+    <script src="jquery-2.2.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            //  .eq()
+            $("span").eq(1).css("font-size", "40px");
+
+            //  .first()
+            $("span").first().css("color", "red");
+
+            //  .parent()
+            $("#sp").parent().css("background-color", "orange");
+            $("p").parent(".selected").css("font-size", "30px");
+
+            //  .siblings()  除自己以外的所有兄弟元素
+            $("#li03").siblings().css("color", "green");
+            $("#li03").siblings(".sii").css("background-color", "red");
+
+            //  .find()
+            $("div").find(".sii").css("font-size", "30px");
+        })
+    </script>
+</head>
+<body>
+<div>
+    <span>我是第1个span</span>  <!--可直接写成  span{我是第$个span}*3  然后按Tab-->
+    <span id="sp">我是第2个span</span>
+    <span>我是第3个span</span>
+</div>
+<div class="selected">
+    <p>hello</p>
+</div>
+<div>
+    <p>hello again</p>
+</div>
+<div>
+    <ul>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li id="li03">我是li3</li>
+        <li>我是li4</li>
+        <li class="sii">我是li5</li>
+        <li>我是li6</li>
+    </ul>
+</div>
+</body>
+</html>
